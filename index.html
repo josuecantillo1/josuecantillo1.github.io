@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo 5 | Análisis Pretest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-oscuro: #0A2463;
+            --azul-intenso: #1A3E8C;
+            --azul-primario: #3E78B2;
+            --azul-secundario: #6BAED6;
+            --azul-claro: #C5D5EA;
+            --blanco-hueso: #F8F9FA;
+            --blanco-puro: #FFFFFF;
+            --sombra-suave: 0 4px 20px rgba(10, 36, 99, 0.12);
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--blanco-hueso);
+            color: #333;
+            line-height: 1.6;
+        }
+        .navbar {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-intenso) 100%);
+            box-shadow: var(--sombra-suave);
+            transition: all 0.4s;
+        }
+        
+        .navbar.scrolled {
+            background: var(--azul-oscuro);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .seccion {
+            padding: 90px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .seccion-clara {
+            background: linear-gradient(to bottom, var(--blanco-hueso) 0%, var(--blanco-puro) 100%);
+        }
+        
+        .seccion-azul {
+            background: linear-gradient(15deg, var(--azul-claro) 0%, var(--blanco-puro) 100%);
+        }
+        
+        .seccion-titulo {
+            color: var(--azul-oscuro);
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        
+        .seccion-titulo:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, var(--azul-secundario), var(--azul-primario));
+            bottom: -10px;
+            left: 0;
+            transition: width 0.5s;
+        }
+        
+        .seccion-titulo:hover:after {
+            width: 100%;
+        }
+        
+        .valor-card {
+            background: linear-gradient(to right, var(--blanco-puro) 0%, var(--azul-claro) 100%);
+            border-left: 4px solid var(--azul-primario);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .valor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(62, 120, 178, 0.15);
+            background: linear-gradient(to right, var(--blanco-puro) 0%, var(--azul-secundario) 100%);
+        }
+        
+        .pretest-img {
+            border: 1px solid var(--azul-claro);
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: var(--blanco-puro);
+            padding: 10px;
+        }
+        
+        .rol-card {
+            background: var(--blanco-puro);
+            border: none;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.4s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .rol-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--azul-secundario), var(--azul-primario));
+            transition: height 0.3s;
+            z-index: -1;
+        }
+        
+        .rol-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .rol-card:hover:before {
+            height: 100%;
+            opacity: 0.1;
+        }
+        
+        footer {
+            background: var(--azul-oscuro);
+            color: var(--blanco-puro);
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%230a2463' opacity='.25'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' fill='%230a2463' opacity='.5'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%230a2463'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-users me-2"></i>Equipo 5
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#valores">Valores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#roles">Roles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pretest">Análisis Pretest</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="d-flex align-items-center" style="background: linear-gradient(rgba(10, 36, 99, 0.7), rgba(10, 36, 99, 0.7)), url('https://i.ibb.co/3YVjMCfC/image.jpg') center/cover no-repeat; height: 100vh; min-height: 600px;">
+        <div class="container text-center text-white">
+            <h1 class="display-3 fw-bold mb-4">Equipo 5</h1>
+            <p class="lead fs-4 mb-5">"Trabajando juntos hacia el éxito colectivo"</p>
+            <a href="#valores" class="btn btn-outline-light btn-lg px-4 py-2">Conoce Más</a>
+        </div>
+    </header>
+
+    <section class="seccion seccion-clara">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <p class="fs-5">Más allá de la noción básica de que nuestro objetivo principal es conquistar el núcleo del proyecto, es fundamental profundizar en el conocimiento de las habilidades blandas y competencias individuales de cada miembro del equipo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="valores" class="seccion seccion-azul">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Nuestros Valores</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="valor-card">
+                        <h3><i class="fas fa-handshake me-2" style="color: var(--azul-primario);"></i> Respeto</h3>
+                        <p>Es esencial tratar a todos los miembros del equipo con el mayor respeto, valorando y considerando sus ideas y opiniones.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="valor-card">
+                        <h3><i class="fas fa-comments me-2" style="color: var(--azul-primario);"></i> Comunicación Abierta</h3>
+                        <p>Promovemos una comunicación abierta y honesta, en la que todos se sientan cómodos expresando sus ideas.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="valor-card">
+                        <h3><i class="fas fa-tasks me-2" style="color: var(--azul-primario);"></i> Compromiso</h3>
+                        <p>Cada miembro asume con responsabilidad sus tareas individuales y grupales, cumpliendo con los plazos establecidos.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="valor-card">
+                        <h3><i class="fas fa-people-arrows me-2" style="color: var(--azul-primario);"></i> Colaboración</h3>
+                        <p>Trabajamos juntos de manera sinérgica, reconociendo que la colaboración activa mejora los resultados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roles" class="seccion">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Roles del Equipo</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="rol-card">
+                        <h4 class="text-center">Santiago Vergara</h4>
+                        <p class="text-center text-muted">Creativo</p>
+                        <p class="text-center mt-3"><i>"Líder designado del equipo"</i></p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="rol-card">
+                        <h4 class="text-center">Denilson Chamorro</h4>
+                        <p class="text-center text-muted">Conocedor</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="rol-card">
+                        <h4 class="text-center">Josué Cantillo</h4>
+                        <p class="text-center text-muted">Planificador e investigador</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mt-4">
+                    <div class="rol-card">
+                        <h4 class="text-center">Jair Caro</h4>
+                        <p class="text-center text-muted">Orador y pensamiento crítico</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mt-4">
+                    <div class="rol-card">
+                        <h4 class="text-center">Jesús Noe</h4>
+                        <p class="text-center text-muted">Colaborativo y operativo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pretest" class="seccion seccion-clara">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Análisis del Pretest</h2>
+            
+            <div class="bg-white p-4 rounded shadow-sm">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h3 class="pretest-titulo">Resultados Iniciales</h3>
+                        <p>Análisis cuantitativo y cualitativo de los datos obtenidos en la fase inicial del proyecto, mostrando las áreas de oportunidad identificadas.</p>
+                        
+                        <h3 class="pretest-titulo">Metodología</h3>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> Encuestas estructuradas</li>
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> Entrevistas individuales</li>
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> Análisis comparativo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                    </div>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <img src="Jesus.jpg" alt="Comparativa de datos pretest" class="pretest-img">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="Denilso.jpg" alt="Tabla de análisis pretest" class="pretest-img">
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <img src="Jair.jpg" alt="Conclusiones pretest" class="pretest-img">
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <img src="Josue.jpg" alt="Equipo analizando pretest" class="pretest-img" style="max-width: 80%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3><i class="fas fa-comments me-2 text-primary"></i> Comunicación</h3>
+                    <p class="mt-4">Nos comunicamos principalmente en nuestro grupo de WhatsApp y al momento de trabajar desde casa nos comunicamos a través de vía Meet o Zoom.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3><i class="fas fa-fire me-2 text-primary"></i> Motivación</h3>
+                    <ul class="mt-4 list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i> Nos motivamos con el deporte y el compartir</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i> Los desafíos nos impulsan a crecer</li>
+                        <li><i class="fas fa-check-circle me-2 text-success"></i> Rectificación colaborativa de trabajos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="text-center">
+        <div class="container">
+            <div class="mb-4">
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="text-white mx-3 fs-4"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2024 Equipo 5. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
