@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo 5 | Propuesta Completa HABI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-oscuro: #0A2463;
+            --azul-intenso: #1A3E8C;
+            --azul-primario: #3E78B2;
+            --azul-secundario: #6BAED6;
+            --azul-claro: #C5D5EA;
+            --blanco-hueso: #F8F9FA;
+            --blanco-puro: #FFFFFF;
+            --sombra-suave: 0 4px 20px rgba(10, 36, 99, 0.12);
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--blanco-hueso);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-intenso) 100%);
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .seccion {
+            padding: 90px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .seccion-clara {
+            background: linear-gradient(to bottom, var(--blanco-hueso) 0%, var(--blanco-puro) 100%);
+        }
+        
+        .seccion-azul {
+            background: linear-gradient(15deg, var(--azul-claro) 0%, var(--blanco-puro) 100%);
+        }
+        
+        .seccion-titulo {
+            color: var(--azul-oscuro);
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        
+        .seccion-titulo:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, var(--azul-secundario), var(--azul-primario));
+            bottom: -10px;
+            left: 0;
+            transition: width 0.5s;
+        }
+        
+        .seccion-titulo:hover:after {
+            width: 100%;
+        }
+        
+        .card-estilizada {
+            background: var(--blanco-puro);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--sombra-suave);
+            transition: all 0.3s;
+            border-top: 4px solid var(--azul-primario);
+        }
+        
+        .card-estilizada:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(10, 36, 99, 0.2);
+        }
+        
+        .habi-hero {
+            background: linear-gradient(rgba(10, 36, 99, 0.8), rgba(10, 36, 99, 0.8)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80') center/cover no-repeat;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .habi-img {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 30px auto;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid var(--azul-claro);
+        }
+        
+        .lista-iconos {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .lista-iconos li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .lista-iconos li i {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            color: var(--azul-primario);
+        }
+        
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            background-color: var(--azul-primario);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: var(--azul-intenso);
+            transform: translateY(-3px);
+        }
+        
+        .smart-card {
+            background: var(--blanco-puro);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--azul-primario);
+            transition: all 0.3s;
+        }
+        
+        .smart-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(62, 120, 178, 0.15);
+        }
+        
+        .smart-numero {
+            background-color: var(--azul-primario);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        footer {
+            background: var(--azul-oscuro);
+            color: var(--blanco-puro);
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%230a2463' opacity='.25'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' fill='%230a2463' opacity='.5'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%230a2463'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .tabla-viabilidad {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        .tabla-viabilidad th, .tabla-viabilidad td {
+            border: 1px solid var(--azul-claro);
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .tabla-viabilidad th {
+            background-color: var(--azul-primario);
+            color: white;
+        }
+        
+        .tabla-viabilidad tr:nth-child(even) {
+            background-color: var(--blanco-hueso);
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-building me-2"></i>HABI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#que-hacemos">Qué Hacemos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#dofa">Análisis DOFA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#viabilidad">Viabilidad</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#objetivos">Objetivos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sostenibilidad">Sostenibilidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="habi-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Tecnología Inmobiliaria al Servicio del Ciudadano</h1>
+            <p class="lead fs-4">Innovación y transparencia en el mercado inmobiliario</p>
+        </div>
+    </div>
+
+    <!-- Qué Hacemos -->
+    <section id="que-hacemos" class="seccion seccion-clara">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Qué Hacemos</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card-estilizada">
+                        <h3><i class="fas fa-home me-2"></i> Compra Directa</h3>
+                        <p>Evaluamos tu propiedad y si cumples ciertos criterios, te hacemos una oferta rápida y justa.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card-estilizada">
+                        <h3><i class="fas fa-hand-holding-usd me-2"></i> Venta de Inmuebles</h3>
+                        <p>Publicamos, promovemos y gestionamos la venta de tu propiedad con acompañamiento integral.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card-estilizada">
+                        <h3><i class="fas fa-calculator me-2"></i> Valoración de Inmuebles</h3>
+                        <p>Con nuestra herramienta "habi metro cuadrado" puedes conocer el valor estimado de tu propiedad.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card-estilizada">
+                        <h3 class="text-center"><i class="fas fa-question-circle me-2"></i> ¿Por qué HABI?</h3>
+                        <p>Habi representa una propuesta innovadora que responde a la necesidad real en América Latina: la complejidad, lentitud y falta de transparencia en los procesos inmobiliarios. Fue seleccionada como ejemplo por su impacto social y económico, ya que facilita el acceso a la vivienda y dinamiza el mercado inmobiliario. Además, es una empresa colombiana que ha logrado escalar regionalmente gracias al uso estratégico de la tecnología, convirtiéndose en un referente del emprendimiento digital en el país.</p>
+                        
+                        <!-- Espacio para imagen 1 -->
+                        <div class="text-center mt-4">
+                            <img src="habi.jpg" alt="Imagen descriptiva de HABI" class="habi-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Análisis DOFA -->
+    <section id="dofa" class="seccion seccion-azul">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Análisis DOFA</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card-estilizada">
+                        <h3><i class="fas fa-thumbs-up me-2"></i> Fortalezas (Internas)</h3>
+                        <ul class="lista-iconos">
+                            <li><i class="fas fa-microchip"></i> <strong>Tecnología e Innovación (9,55% vs 15%):</strong> Base tecnológica sólida para valoraciones y transacciones digitales.</li>
+                            <li><i class="fas fa-leaf"></i> <strong>Sostenibilidad (9,55% vs 15%):</strong> Posicionamiento en tendencias de eficiencia energética.</li>
+                            <li><i class="fas fa-handshake"></i> <strong>Alianzas Estratégicas (3% vs 3%):</strong> Cumplimiento del objetivo en colaboraciones con actores locales.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card-estilizada">
+                        <h3><i class="fas fa-exclamation-triangle me-2"></i> Debilidades (Internas)</h3>
+                        <ul class="lista-iconos">
+                            <li><i class="fas fa-users"></i> <strong>Talento Humano (3,40% vs 12,50%):</strong> Falta de talento especializado en normativas españolas.</li>
+                            <li><i class="fas fa-id-card"></i> <strong>Licencias y Franquicias (0% vs 7%):</strong> Carencia de modelo escalable basado en franquicias.</li>
+                            <li><i class="fas fa-shipping-fast"></i> <strong>Exportación/Importación (0,20% vs 8%):</strong> Baja capacidad logística para operaciones internacionales.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card-estilizada">
+                        <h3><i class="fas fa-bullseye me-2"></i> Oportunidades (Externas)</h3>
+                        <ul class="lista-iconos">
+                            <li><i class="fas fa-globe-europe"></i> <strong>Potencial de Internacionalización (15,64% vs 50%):</strong> Alto margen de crecimiento en España.</li>
+                            <li><i class="fas fa-laptop-code"></i> <strong>Digitalización del sector:</strong> Crecimiento de proptechs (+30% desde 2020).</li>
+                            <li><i class="fas fa-passport"></i> <strong>Nicho de expatriados:</strong> Oportunidad para ofrecer transacciones rápidas.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card-estilizada">
+                        <h3><i class="fas fa-shield-alt me-2"></i> Amenazas (Externas)</h3>
+                        <ul class="lista-iconos">
+                            <li><i class="fas fa-chess-rook"></i> <strong>Competencia consolidada:</strong> Empresas como Idealista o Fotocasa dominan el mercado.</li>
+                            <li><i class="fas fa-gavel"></i> <strong>Regulaciones estrictas:</strong> Ley de Vivienda 2023 limita precios en zonas tensionadas.</li>
+                            <li><i class="fas fa-chart-line-down"></i> <strong>Crisis económica:</strong> Inflación y altos tipos de interés reducen acceso a créditos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Espacio para gráfico DOFA -->
+            <div class="text-center mt-4">
+                <img src="DOFA.jpg" alt="DOFA" class="habi-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Análisis de Viabilidad -->
+    <section id="viabilidad" class="seccion seccion-clara">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Análisis de Viabilidad de Internacionalización</h2>
+            
+            <div class="card-estilizada">
+                <h3 class="text-center"><i class="fas fa-globe-americas me-2"></i> Justificación del servicio de HABI para España</h3>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h4><i class="fas fa-chart-line text-primary me-2"></i> Mercado en Fuerte Crecimiento</h4>
+                        <p>6.9% CAGR (2024: USD 177.46B → 2029: USD 247.74B). Oportunidad para captar parte de este crecimiento (+USD 70B en 5 años) con su modelo ágil.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h4><i class="fas fa-chess-board text-primary me-2"></i> Baja Concentración</h4>
+                        <p>Mercado fragmentado (sin dominancia de grandes jugadores). Ventaja para HABI: Pocas inmobiliarias usan tecnología para compra directa y tasaciones rápidas.</p>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h4><i class="fas fa-clock text-primary me-2"></i> Problema Actual que HABI Resuelve</h4>
+                        <p><strong>Lentitud:</strong> Procesos tradicionales (meses) vs. HABI (días). <strong>Transparencia:</strong> Valuaciones basadas en datos (no en criterios subjetivos).</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h4><i class="fas fa-user-tie text-primary me-2"></i> Nichos Clave sin Atender</h4>
+                        <p><strong>Expatriados:</strong> Necesitan procesos simples y bilingües. <strong>Vendedores urgentes:</strong> Por divorcios, herencias o relocalización.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <h4 class="text-center"><i class="fas fa-check-circle text-success me-2"></i> Conclusión</h4>
+                    <p class="lead text-center">España tiene un mercado en crecimiento, fragmentado y con procesos obsoletos → HABI llega para digitalizar, acelerar y democratizar las transacciones inmobiliarias.</p>
+                </div>
+                
+                <!-- Espacio para gráfico de viabilidad -->
+                <div class="text-center mt-4">
+                    <img src="Españaresidencial.jpg" alt="Gráfico de viabilidad internacional" class="habi-img">
+                </div>
+                
+                <!-- Tabla comparativa -->
+                <div class="mt-5">
+                    <h4><i class="fas fa-table text-primary me-2"></i> Comparativa de Mercado</h4>
+                    <table class="tabla-viabilidad">
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th>Mercado Tradicional</th>
+                                <th>HABI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tiempo de transacción</td>
+                                <td>Meses</td>
+                                <td>Días</td>
+                            </tr>
+                            <tr>
+                                <td>Transparencia</td>
+                                <td>Limitada</td>
+                                <td>Basada en datos</td>
+                            </tr>
+                            <tr>
+                                <td>Tecnología</td>
+                                <td>Escasa</td>
+                                <td>Núcleo del modelo</td>
+                            </tr>
+                            <tr>
+                                <td>Enfoque en expatriados</td>
+                                <td>Bajo</td>
+                                <td>Alto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objetivos SMART -->
+    <section id="objetivos" class="seccion seccion-azul">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Objetivos SMART</h2>
+            
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="smart-card">
+                        <div class="d-flex align-items-start">
+                            <div class="smart-numero">1</div>
+                            <div>
+                                <h4>Establecimiento Legal y Operativo en España</h4>
+                                <p>Completar el registro legal en Madrid o Barcelona, apertura de oficina física y contratación de al menos dos empleados locales clave en un plazo máximo de cuatro meses.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="smart-card">
+                        <div class="d-flex align-items-start">
+                            <div class="smart-numero">2</div>
+                            <div>
+                                <h4>Alianzas Estratégicas con Actores Clave</h4>
+                                <p>Establecer al menos cinco alianzas estratégicas en los primeros seis meses (tres con agentes inmobiliarios y dos con entidades financieras).</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="smart-card">
+                        <div class="d-flex align-items-start">
+                            <div class="smart-numero">3</div>
+                            <div>
+                                <h4>Adaptación del Modelo al Marco Legal Español</h4>
+                                <p>Adaptar contratos y procesos para cumplir con la legislación local en un plazo de tres meses.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="smart-card">
+                        <div class="d-flex align-items-start">
+                            <div class="smart-numero">4</div>
+                            <div>
+                                <h4>Registro como Intermediario de Crédito Inmobiliario (ICI)</h4>
+                                <p>Registrarse oficialmente como ICI ante el Banco de España durante el primer semestre.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="smart-card">
+                        <div class="d-flex align-items-start">
+                            <div class="smart-numero">5</div>
+                            <div>
+                                <h4>Cierre de 100 Promesas de Compraventa en el Primer Año</h4>
+                                <p>Firma de al menos 100 promesas de compraventa durante el primer año de operaciones.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="smart-card">
+                        <div class="d-flex align-items-start">
+                            <div class="smart-numero">6</div>
+                            <div>
+                                <h4>Implementación de un Sistema CRM Eficiente</h4>
+                                <p>Implementar un sistema CRM adaptado en los primeros tres meses, capacitando al 100% del equipo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dimensiones Sostenibles -->
+    <section id="sostenibilidad" class="seccion seccion-clara">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Dimensiones Sostenibles</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card-estilizada">
+                        <h3><i class="fas fa-chart-line me-2"></i> Económico</h3>
+                        <p>Publicamos logros como volumen de transacciones y expansión geográfica.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card-estilizada">
+                        <h3><i class="fas fa-users me-2"></i> Social</h3>
+                        <p>Destacamos nuestro impacto en democratizar el acceso a vivienda con créditos flexibles.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card-estilizada">
+                        <h3><i class="fas fa-leaf me-2"></i> Ambiental</h3>
+                        <p>Medimos las huellas de carbono generadas y utilizamos energías renovables como paneles solares.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="mb-4">
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="text-white mx-3 fs-4"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2024 Equipo 5 - Propuesta Completa HABI. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón para volver a la página principal -->
+    <a href="index.html" class="back-button" title="Volver a la página principal">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling para todos los enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
