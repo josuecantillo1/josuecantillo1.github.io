@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Económico Completo - Habi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .back-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        text-decoration: none;
+        }
+        .back-button:hover {
+        background-color: var(--secondary-color);
+        }
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+        }
+        
+        .analysis-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .intro-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .indicator-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        
+        .indicator-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
+        .indicator-content {
+            padding: 25px;
+        }
+        
+        .data-visualization {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        
+        .chart-container {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .chart-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .data-table {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--light-color);
+            font-weight: bold;
+        }
+        
+        .analysis-text {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid var(--secondary-color);
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .impact-rating {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            background-color: var(--accent-color);
+            color: white;
+            float: right;
+        }
+        
+        .conclusion-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        
+        .rating-table {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        
+        .rating-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .data-visualization {
+                flex-direction: column;
+            }
+            
+            .impact-rating {
+                float: none;
+                display: block;
+                margin-top: 10px;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="analysis-container">
+        <!-- Encabezado -->
+        <div class="header">
+            <h1>INDICADORES NACIONALES</h1>
+            <h2>Análisis para la internacionalización de Habi en España</h2>
+        </div>
+        
+        <!-- Introducción -->
+        <div class="intro-section">
+            <h3>INTRODUCCIÓN</h3>
+            <p>La internacionalización de una empresa, especialmente en sectores tan competitivos como el inmobiliario, exige un análisis riguroso del entorno macroeconómico del país objetivo. Para Habi, startup colombiana de compraventa de inmuebles, evaluar la viabilidad de su expansión a España requiere entender variables clave que impactan en la demanda, la estabilidad financiera y las oportunidades de crecimiento.</p>
+            <p>Este documento profundiza en cinco indicadores económicos fundamentales: crecimiento del PIB, inflación, tasa de desempleo, tasas de interés y tipo de cambio, analizando su comportamiento en España entre 2019 y 2023, con datos del Banco Mundial, FMI y Eurostat.</p>
+            <p>Estos indicadores no solo reflejan la salud económica del mercado español, sino que también permiten anticipar riesgos y oportunidades para Habi, como la capacidad adquisitiva de los consumidores, el acceso a créditos hipotecarios y la estabilidad cambiaria. La integración de estos análisis ofrece una visión estratégica para priorizar acciones y garantizar una entrada eficaz.</p>
+        </div>
+        
+        <!-- Indicador 1: PIB -->
+        <div class="indicator-section">
+            <div class="indicator-header">
+                1. CRECIMIENTO ANUAL DEL PIB <span class="impact-rating">Impacto: 4/5</span>
+            </div>
+            <div class="indicator-content">
+                <div class="data-visualization">
+                    <div class="chart-container">
+                        <div class="chart-placeholder">
+                            <img src="pib crecimiento.jpg" alt="pib crecimiento">
+                        </div>
+                        <p>Fuente: Banco Mundial 2023 Estimaciones FMI.</p>
+                    </div>
+                    <div class="data-table">
+                        <table>
+                            <tr>
+                                <th>Año</th>
+                                <th>España</th>
+                                <th>Colombia</th>
+                            </tr>
+                            <tr>
+                                <td>2019</td>
+                                <td>2.0%</td>
+                                <td>3.3%</td>
+                            </tr>
+                            <tr>
+                                <td>2020</td>
+                                <td>-10.8%</td>
+                                <td>-7.3%</td>
+                            </tr>
+                            <tr>
+                                <td>2021</td>
+                                <td>5.5%</td>
+                                <td>10.6%</td>
+                            </tr>
+                            <tr>
+                                <td>2022</td>
+                                <td>5.5%</td>
+                                <td>7.3%</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td>2.5%</td>
+                                <td>1.5%</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="analysis-text">
+                    <h4>Relación con internacionalización:</h4>
+                    <p>El PIB español mostró volatilidad: 2.0% (2019), colapso del -10.8% (2020) por la pandemia, recuperación al 5.5% (2021-2022) con fondos UE, y desaceleración al 2.5% en 2023 (Banco Mundial, 2023). Esta trayectoria refleja una economía en estabilización, con demanda creciente de vivienda en ciudades como Madrid y Barcelona, clave para Habi. La reactivación post-COVID impulsó confianza en inversiones inmobiliarias, pero el Euribor (4% en 2023) encarece créditos, retando a segmentos medios.</p>
+                    <p>Para Habi, el crecimiento sostenido (4/5 en oportunidad) ofrece un mercado atractivo, aunque exige mitigar riesgos mediante alianzas con bancos y precios competitivos. La estabilidad macroeconómica respalda su modelo ágil, priorizando zonas con alta demanda y poder adquisitivo.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicador 2: Inflación -->
+        <div class="indicator-section">
+            <div class="indicator-header">
+                2. INFLACIÓN ANUAL (IPC) <span class="impact-rating">Impacto: 4/5</span>
+            </div>
+            <div class="indicator-content">
+                <div class="data-visualization">
+                    <div class="chart-container">
+                        <div class="chart-placeholder">
+                            <img src="inflacion anual.jpg" alt="">
+                        </div>
+                        <p>Fuente: FMI (2023).</p>
+                    </div>
+                    <div class="data-table">
+                        <table>
+                            <tr>
+                                <th>Año</th>
+                                <th>España</th>
+                                <th>Colombia</th>
+                            </tr>
+                            <tr>
+                                <td>2019</td>
+                                <td>0.8%</td>
+                                <td>3.8%</td>
+                            </tr>
+                            <tr>
+                                <td>2020</td>
+                                <td>-0.3%</td>
+                                <td>2.5%</td>
+                            </tr>
+                            <tr>
+                                <td>2021</td>
+                                <td>6.5%</td>
+                                <td>5.6%</td>
+                            </tr>
+                            <tr>
+                                <td>2022</td>
+                                <td>8.4%</td>
+                                <td>13.1%</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td>3.2%*</td>
+                                <td>9.2%*</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="analysis-text">
+                    <h4>Relación con internacionalización:</h4>
+                    <p>Analizando la inflación anual en España, resalta la estabilidad entre 2019 y 2021, generando confianza para la inversión internacional (calificación: 4). No obstante, en 2022 se observa un incremento significativo, lo que exige cautela por el posible aumento de costos y la afectación al poder adquisitivo (calificación: 3). Afortunadamente, la tendencia en 2023 sugiere una moderación, lo cual es una señal positiva para considerar a España como destino.</p>
+                    <p>En resumen, la inflación española transitó de un escenario favorable a uno que requiere seguimiento detallado para evaluar su impacto real en la internacionalización. La estabilidad inicial ofrecía un buen punto de partida, pero el pico de 2022 demanda un análisis sectorial profundo.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicador 3: Tasa de Desempleo -->
+        <div class="indicator-section">
+            <div class="indicator-header">
+                3. TASA DE DESEMPLEO <span class="impact-rating">Impacto: 3/5</span>
+            </div>
+            <div class="indicator-content">
+                <div class="data-visualization">
+                    <div class="chart-container">
+                        <div class="chart-placeholder">
+                            <img src="tasa desempleo.jpg" alt="">
+                        </div>
+                        <p>Fuente: Eurostat y DANE (2023).</p>
+                    </div>
+                    <div class="data-table">
+                        <table>
+                            <tr>
+                                <th>Año</th>
+                                <th>España</th>
+                                <th>Colombia</th>
+                            </tr>
+                            <tr>
+                                <td>2019</td>
+                                <td>14.1%</td>
+                                <td>10.5%</td>
+                            </tr>
+                            <tr>
+                                <td>2020</td>
+                                <td>15.5%</td>
+                                <td>16.1%</td>
+                            </tr>
+                            <tr>
+                                <td>2021</td>
+                                <td>14.8%</td>
+                                <td>13.7%</td>
+                            </tr>
+                            <tr>
+                                <td>2022</td>
+                                <td>12.9%</td>
+                                <td>11.2%</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td>12.1%*</td>
+                                <td>10.5%</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="analysis-text">
+                    <h4>Relación con internacionalización:</h4>
+                    <p>De acuerdo con los datos se ve que los índices de desempleo aún siguen elevados (12,1%), pero con el pasar del tiempo se ve que tienen tendencia a la baja lo cual nos podría decir que muchas personas en España ya pueden tener el dinero suficiente para comprar viviendas y además nos muestra una gran oportunidad para contratar empresarios españoles y cumplir nuestro objetivo.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicador 4: Tasa de Interés -->
+        <div class="indicator-section">
+            <div class="indicator-header">
+                4. TASA DE INTERÉS (Euribor) <span class="impact-rating">Impacto: 3/5</span>
+            </div>
+            <div class="indicator-content">
+                <div class="data-visualization">
+                    <div class="chart-container">
+                        <div class="chart-placeholder">
+                            <img src="tasa de interes.jpg" alt="">
+                        </div>
+                        <p>Fuente: BCE y Banco de la República de Colombia (2023).</p>
+                    </div>
+                    <div class="data-table">
+                        <table>
+                            <tr>
+                                <th>Año</th>
+                                <th>España (Euribor)</th>
+                                <th>Colombia (TIIE)</th>
+                            </tr>
+                            <tr>
+                                <td>2019</td>
+                                <td>-0.3%</td>
+                                <td>4.25%</td>
+                            </tr>
+                            <tr>
+                                <td>2020</td>
+                                <td>-0.5%</td>
+                                <td>1.75%</td>
+                            </tr>
+                            <tr>
+                                <td>2021</td>
+                                <td>-0.5%</td>
+                                <td>3.0%</td>
+                            </tr>
+                            <tr>
+                                <td>2022</td>
+                                <td>2.8%</td>
+                                <td>11.0%</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td>4.0%*</td>
+                                <td>13.25%</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="analysis-text">
+                    <h4>Relación con internacionalización:</h4>
+                    <p>Entre 2019 y 2021, España (eurozona) experimentó tasas de interés negativas para estimular su economía, profundizándose en 2020 por la pandemia. En contraste, Colombia mantuvo tasas relativamente estables. Un cambio drástico ocurrió entre 2022 y 2023. España subió sus tasas hasta el 4% para combatir la alta inflación postpandemia y el impacto de la guerra en Ucrania. Colombia, por su parte, incrementó agresivamente sus tasas hasta el 13,25% para controlar una mayor inflación, la devaluación del peso y el sobrecalentamiento económico.</p>
+                    <p>Históricamente, Colombia ha tenido tasas más altas por ser una economía emergente con mayor volatilidad. La brecha se amplió significativamente en 2022-2023 debido a las políticas más contractivas del Banco de la República frente al BCE. Esto refleja una economía colombiana con más riesgo e inflación, encareciendo el crédito e impactando el crecimiento.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicador 5: Tipo de Cambio -->
+        <div class="indicator-section">
+            <div class="indicator-header">
+                5. TIPO DE CAMBIO (EUR/USD) <span class="impact-rating">Impacto: 5/5</span>
+            </div>
+            <div class="indicator-content">
+                <div class="data-visualization">
+                    <div class="chart-container">
+                        <div class="chart-placeholder">
+                            <img src="euro dolar por año.jpg" alt="">
+                        </div>
+                        <p>Fuente: Banco Central Europeo (2023).</p>
+                    </div>
+                    <div class="data-table">
+                        <table>
+                            <tr>
+                                <th>Año</th>
+                                <th>EUR/USD</th>
+                            </tr>
+                            <tr>
+                                <td>2019</td>
+                                <td>1.12</td>
+                            </tr>
+                            <tr>
+                                <td>2020</td>
+                                <td>1.14</td>
+                            </tr>
+                            <tr>
+                                <td>2021</td>
+                                <td>1.18</td>
+                            </tr>
+                            <tr>
+                                <td>2022</td>
+                                <td>1.05</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td>1.08*</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="analysis-text">
+                    <h4>Relación con internacionalización:</h4>
+                    <p>El tipo de cambio EUR/USD es clave para la internacionalización de Habi en España, mercado donde los precios de inmuebles y transacciones dependen del euro. Entre 2019 y 2021, el euro se fortaleció (1.12–1.18), incrementando el costo en dólares para Habi al adquirir propiedades en España. No obstante, esto potenciaba sus ingresos si vendía activos en euros.</p>
+                    <p>En 2022, la fuerte apreciación del dólar (1.05) abarató las inversiones en el mercado español, pero redujo el valor en dólares de los ingresos generados allí. Para 2023, con una ligera recuperación del euro (1.08), se atenuaron estos efectos.</p>
+                    <p>Para Habi, este indicador impacta directamente su estrategia en España: encarece o abarata compras, afecta el valor de las ventas e influye en financiamientos en euros. La empresa debería aprovechar fases de dólar fuerte (como 2022) para comprar activos españoles, usando coberturas cambiarias para gestionar riesgos y optimizar su expansión en este mercado.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Resumen de Calificaciones -->
+        <div class="conclusion-section">
+            <h3>CALIFICACIÓN DE IMPACTO DE LOS INDICADORES</h3>
+            <table class="rating-table">
+                <tr>
+                    <th>INDICADORES</th>
+                    <th>CALIFICACIÓN DE IMPACTO</th>
+                </tr>
+                <tr>
+                    <td>PIB</td>
+                    <td>4/5</td>
+                </tr>
+                <tr>
+                    <td>INFLACIÓN</td>
+                    <td>4/5</td>
+                </tr>
+                <tr>
+                    <td>TASA DE DESEMPLEO</td>
+                    <td>3/5</td>
+                </tr>
+                <tr>
+                    <td>TASA DE INTERÉS</td>
+                    <td>3/5</td>
+                </tr>
+                <tr>
+                    <td>TIPO DE CAMBIO</td>
+                    <td>5/5</td>
+                </tr>
+            </table>
+            
+            <h3>Conclusiones estratégicas</h3>
+            <p>El análisis completo de los indicadores económicos entre 2019-2023 revela que España representa un mercado atractivo pero con desafíos específicos para la expansión de Habi. La combinación de crecimiento económico moderado, inflación controlada y tendencia a la baja en desempleo crea condiciones favorables para el sector inmobiliario.</p>
+            <p>Recomendaciones clave:</p>
+            <ul>
+                <li><strong>Estrategia de precios:</strong> Considerar la evolución del tipo de cambio EUR/USD para optimizar momentos de compra de propiedades</li>
+                <li><strong>Financiamiento:</strong> Establecer alianzas con bancos locales para ofrecer condiciones competitivas a pesar del Euribor elevado</li>
+                <li><strong>Segmentación:</strong> Enfocarse en zonas urbanas con mayor dinamismo económico (Madrid, Barcelona) donde el poder adquisitivo se recupera más rápido</li>
+                <li><strong>Gestión de riesgos:</strong> Implementar coberturas cambiarias para proteger los flujos financieros de la volatilidad del euro</li>
+                <li><strong>Talento humano:</strong> Aprovechar la reducción en tasas de desempleo para reclutar profesionales locales con conocimiento del mercado</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Botón para volver a la página principal -->
+<a href="index.html" class="back-button" title="Volver a la página principal">
+    <i class="fas fa-arrow-left"></i>
+</a>
+</a>
+</body>
+</html>
