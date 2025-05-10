@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo 5 | Análisis de Internacionalización HABI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-oscuro: #0A2463;
+            --azul-intenso: #1A3E8C;
+            --azul-primario: #3E78B2;
+            --azul-secundario: #6BAED6;
+            --azul-claro: #C5D5EA;
+            --blanco-hueso: #F8F9FA;
+            --blanco-puro: #FFFFFF;
+            --sombra-suave: 0 4px 20px rgba(10, 36, 99, 0.12);
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--blanco-hueso);
+            color: #333;
+            line-height: 1.6;
+        }
+        .navbar {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-intenso) 100%);
+            box-shadow: var(--sombra-suave);
+            transition: all 0.4s;
+        }
+        
+        .navbar.scrolled {
+            background: var(--azul-oscuro);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .seccion {
+            padding: 90px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .seccion-clara {
+            background: linear-gradient(to bottom, var(--blanco-hueso) 0%, var(--blanco-puro) 100%);
+        }
+        
+        .seccion-azul {
+            background: linear-gradient(15deg, var(--azul-claro) 0%, var(--blanco-puro) 100%);
+        }
+        
+        .seccion-titulo {
+            color: var(--azul-oscuro);
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        
+        .seccion-titulo:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, var(--azul-secundario), var(--azul-primario));
+            bottom: -10px;
+            left: 0;
+            transition: width 0.5s;
+        }
+        
+        .seccion-titulo:hover:after {
+            width: 100%;
+        }
+        
+        .valor-card {
+            background: linear-gradient(to right, var(--blanco-puro) 0%, var(--azul-claro) 100%);
+            border-left: 4px solid var(--azul-primario);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .valor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(62, 120, 178, 0.15);
+            background: linear-gradient(to right, var(--blanco-puro) 0%, var(--azul-secundario) 100%);
+        }
+        
+        .pretest-img {
+            border: 1px solid var(--azul-claro);
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: var(--blanco-puro);
+            padding: 10px;
+        }
+        
+        .rol-card {
+            background: var(--blanco-puro);
+            border: none;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.4s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .rol-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--azul-secundario), var(--azul-primario));
+            transition: height 0.3s;
+            z-index: -1;
+        }
+        
+        .rol-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .rol-card:hover:before {
+            height: 100%;
+            opacity: 0.1;
+        }
+        
+        footer {
+            background: var(--azul-oscuro);
+            color: var(--blanco-puro);
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%230a2463' opacity='.25'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' fill='%230a2463' opacity='.5'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%230a2463'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        /* Estilos específicos para el análisis */
+        .impact {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .impact-5 {
+            background-color: #27ae60;
+        }
+        
+        .impact-4 {
+            background-color: #2ecc71;
+        }
+        
+        .impact-3 {
+            background-color: #f39c12;
+        }
+        
+        .chart-container {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .conclusion {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border-left: 4px solid var(--azul-primario);
+        }
+        
+        .conclusion h3 {
+            margin-top: 0;
+            color: var(--azul-primario);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--azul-primario);
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            background-color: var(--azul-primario);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: var(--azul-intenso);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-building me-2"></i>HABI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cultural">Cultural</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#political">Político</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#technological">Tecnológico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#commerce">Comercio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#investment">Inversión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Analisis Del Preset</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pagina1.html">Propuesta Completa Habi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pagina2.html">Análisis Económico Completo</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="d-flex align-items-center" style="background: linear-gradient(rgba(10, 36, 99, 0.7), rgba(10, 36, 99, 0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80') center/cover no-repeat; height: 100vh; min-height: 600px;">
+        <div class="container text-center text-white">
+            <h1 class="display-3 fw-bold mb-4">Análisis de Internacionalización de HABI en España</h1>
+            <p class="lead fs-4 mb-5">Evaluación estratégica para la expansión al mercado europeo</p>
+            <a href="#cultural" class="btn btn-outline-light btn-lg px-4 py-2">Ver Análisis</a>
+        </div>
+    </header>
+
+    <!-- Sección Cultural -->
+    <section id="cultural" class="seccion seccion-clara">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Entorno Cultural</h2>
+            
+            <div class="valor-card">
+                <h3><i class="fas fa-users me-2"></i> Indicadores Demográficos</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Población (Millones)</th>
+                            <th>Edad Media</th>
+                            <th>Tasa de Urbanización (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>46.7</td>
+                            <td>43.9</td>
+                            <td>80.5</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>47.0</td>
+                            <td>44.2</td>
+                            <td>80.7</td>
+                        </tr>
+                        <tr>
+                            <td>2020</td>
+                            <td>47.4</td>
+                            <td>44.5</td>
+                            <td>81.0</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>47.5</td>
+                            <td>44.8</td>
+                            <td>81.2</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>47.6</td>
+                            <td>45.1</td>
+                            <td>81.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted"><em>Fuente: INE (Instituto Nacional de Estadística de España)</em></p>
+                
+                <div class="text-center mt-4">
+                    <img src="DatosDemograficos.jpg" alt="Evolución Demográfica de España" class="pretest-img">
+                    <p class="text-muted">Evolución Demográfica de España (2018-2022)</p>
+                </div>
+            </div>
+            
+            <div class="valor-card mt-4">
+                <h3><i class="fas fa-graduation-cap me-2"></i> Nivel de Alfabetismo y Educación</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Tasa de Alfabetización (%)</th>
+                            <th>Educación Superior (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>98.5</td>
+                            <td>42.1</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>98.6</td>
+                            <td>43.3</td>
+                        </tr>
+                        <tr>
+                            <td>2020</td>
+                            <td>98.7</td>
+                            <td>43.8</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>98.8</td>
+                            <td>44.5</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>98.9</td>
+                            <td>45.2</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted"><em>Fuente: Eurostat</em></p>
+                
+                <div class="text-center mt-4">
+                    <img src="EducacionEspaña.jpg" alt="Educación en España" class="pretest-img">
+                    <p class="text-muted">Educación en España (2018-2022)</p>
+                </div>
+            </div>
+            
+            <div class="valor-card mt-4">
+                <h3><i class="fas fa-globe-americas me-2"></i> Variables de Hofstede y Distancia Cultural</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimensión</th>
+                            <th>España</th>
+                            <th>Colombia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Distancia de poder</td>
+                            <td>57</td>
+                            <td>67</td>
+                        </tr>
+                        <tr>
+                            <td>Individualismo</td>
+                            <td>51</td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <td>Masculinidad</td>
+                            <td>42</td>
+                            <td>64</td>
+                        </tr>
+                        <tr>
+                            <td>Evasíón de incertidumbre</td>
+                            <td>86</td>
+                            <td>80</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="text-center mt-4">
+                    <img src="Distancia Cultural.jpg" alt="Distancia cultural España vs. Colombia" class="pretest-img">
+                    <p class="text-muted">Distancia cultural España vs. Colombia</p>
+                </div>
+                
+                <h4 class="mt-4">Impacto: <span class="impact impact-4">4/5</span> (similaridades culturales facilitan adaptación)</h4>
+                
+                <h3 class="mt-4"><i class="fas fa-chart-pie me-2"></i> Análisis</h3>
+                <p>En este análisis de cultural realizado en España, los indicadores demográficos nos muestran que a lo largo de los años la población ha ido creciendo igual que la urbanización pero la tasa de edad media también por ende es una buena oportunidad para HABI porque muestra mucho mas mercado con la población elevada y aunque la edad media es un problema en el indicador de educación España a crecido lo que facilita la adopción de la tecnología de HABI y España tiene menor distancia jerárquica que Colombia, lo que favorece en decisiones descentralizadas. Además de una alta evasión de incertidumbre que implica necesidad de claridad en procesos legales, relevante para transacciones inmobiliarias.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Política y Legal -->
+    <section id="political" class="seccion seccion-azul">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Entorno Político y Legal</h2>
+            
+            <div class="valor-card">
+                <h3><i class="fas fa-balance-scale me-2"></i> Regulaciones específicas del país (2022)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Regulación</th>
+                            <th>Descripción</th>
+                            <th>Impacto en HABI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ley de Propiedad Horizontal</td>
+                            <td>Regula compraventa de viviendas, exigiendo transparencia en precios y cargas fiscales (BOE).</td>
+                            <td>Requiere integración con registros públicos digitales (ej.: Catastro).</td>
+                        </tr>
+                        <tr>
+                            <td>GDPR (UE)</td>
+                            <td>Protección estricta de datos personales, con multas de hasta €20 millones por incumplimiento.</td>
+                            <td>Exige inversión en seguridad informática y consentimiento explícito.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>España presenta <em>estabilidad política</em> (Índice de Riesgo Político: 65/100, PRS Group) y <em>baja exposición a desastres naturales</em> (World Risk Index: 2.7/10). Las regulaciones, aunque rigurosas, generan confianza en transacciones digitales.</p>
+            </div>
+            
+            <div class="valor-card mt-4">
+                <h3><i class="fas fa-shield-alt me-2"></i> Índice de Riesgo Político</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Calificación (0-100)</th>
+                            <th>Clasificación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>68</td>
+                            <td>Bajo riesgo</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>67</td>
+                            <td>Bajo riesgo</td>
+                        </tr>
+                        <tr>
+                            <td>2020</td>
+                            <td>66</td>
+                            <td>Bajo riesgo</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>65</td>
+                            <td>Bajo riesgo</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>65</td>
+                            <td>Bajo riesgo</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="text-center mt-4">
+                    <img src="politicoreal.jpg" alt="Evolución del Índice de Riesgo Político" class="pretest-img">
+                    <p class="text-muted">Evolución del Índice de Riesgo Político</p>
+                </div>
+            </div>
+            
+            <div class="valor-card mt-4">
+                <h3><i class="fas fa-globe-europe me-2"></i> World Risk Index</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Puntuación (0-10)</th>
+                            <th>Clasificación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>3.1</td>
+                            <td>Riesgo medio</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>2.9</td>
+                            <td>Riesgo bajo</td>
+                        </tr>
+                        <tr>
+                            <td>2020</td>
+                            <td>2.8</td>
+                            <td>Riesgo bajo</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>2.7</td>
+                            <td>Riesgo bajo</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>2.7</td>
+                            <td>Riesgo bajo</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="text-center mt-4">
+                    <img src="RiesgoPolitico.jpg" alt="World Risk Index - España" class="pretest-img">
+                    <p class="text-muted">World Risk Index - España</p>
+                </div>
+                
+                <h3 class="mt-4"><i class="fas fa-chart-pie me-2"></i> Análisis</h3>
+                <p><em>Entorno Político y Legal -- España</em></p>
+                <p>España ofrece un <em>entorno estable</em> (Índice de Riesgo Político: 65/100, bajo riesgo según PRS Group) con políticas predecibles y apoyo a la inversión extranjera. Destacan regulaciones como la Ley de Propiedad Horizontal, que garantiza transparencia en transacciones inmobiliarias, y el GDPR, exigiendo seguridad de datos para plataformas digitales como HABI. Estas normas implican costos iniciales en compliance, pero fortalecen la confianza del usuario. Además, el <em>World Risk Index</em> (2.7/10, UNU-EHS) confirma baja exposición a desastres naturales, limitando riesgos operativos a zonas rurales (incendios en Andalucía).</p>
+                
+                <p><em>Impacto en HABI</em>:</p>
+                <p>La estabilidad política facilita planes a largo plazo, mientras el marco legal exige adaptación técnica (ej.: integración con registros digitales). La baja incidencia de catástrofes naturales asegura continuidad en ciudades clave (Madrid, Barcelona). <em>Calificación: 4/5</em> (positivo, con desafíos en costos regulatorios iniciales).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Tecnológica y Geo Ambiental -->
+    <section id="technological" class="seccion seccion-clara">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Entorno Tecnológico y Geo Ambiental</h2>
+            
+            <div class="valor-card">
+                <h3><i class="fas fa-map-marked-alt me-2"></i> Indicadores geográficos relevantes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indicador</th>
+                            <th>Datos (2022)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Superficie</td>
+                            <td>505,990 km²</td>
+                        </tr>
+                        <tr>
+                            <td>Clima predominante</td>
+                            <td>Mediterráneo (secos en verano)</td>
+                        </tr>
+                        <tr>
+                            <td>Principales ciudades</td>
+                            <td>Madrid, Barcelona, Valencia, Sevilla</td>
+                        </tr>
+                        <tr>
+                            <td>Infraestructura clave</td>
+                            <td>17,000 km de autovías; 47 puertos</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted"><em>Fuente: Instituto Geográfico Nacional de España (2023)</em></p>
+            </div>
+            
+            <div class="valor-card mt-4">
+                <h3><i class="fas fa-wifi me-2"></i> Usuarios de internet (2022)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>% Población usuaria de internet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>85%</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>87%</td>
+                        </tr>
+                        <tr>
+                            <td>2020</td>
+                            <td>89%</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>91%</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>93%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted"><em>Fuente: Eurostat</em></p>
+                
+                <div class="text-center mt-4">
+                    <img src="internet.jpg" alt="Penetración de Internet en España" class="pretest-img">
+                    <p class="text-muted">Penetración de Internet en España (2018-2022)</p>
+                </div>
+            </div>
+            
+            <div class="valor-card mt-4">
+                <h3><i class="fas fa-laptop-code me-2"></i> Acceso a tecnología</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>% Hogares con banda ancha</th>
+                            <th>Dispositivos móviles por persona</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>78%</td>
+                            <td>1.2</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>80%</td>
+                            <td>1.3</td>
+                        </tr>
+                        <tr>
+                            <td>2020</td>
+                            <td>82%</td>
+                            <td>1.4</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>85%</td>
+                            <td>1.5</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>87%</td>
+                            <td>1.6</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted"><em>Fuente: INE</em></p>
+                
+                <div class="text-center mt-4">
+                    <img src="bada hacha.jpg" alt="Acceso a tecnología en hogares españoles" class="pretest-img">
+                    <p class="text-muted">Acceso a tecnología en hogares españoles</p>
+                </div>
+                
+                <h3 class="mt-4"><i class="fas fa-chart-pie me-2"></i> Análisis</h3>
+                <ol>
+                    <li><strong>Usuarios de internet (Impacto: <span class="impact impact-5">5/5</span>)</strong>: La primera gráfica evidencia un incremento del 80% al 94% (2018-2022) en usuarios de internet, reflejando una sociedad digitalizada. Para HABI, empresa probablemente vinculada a servicios digitales (ej: inmobiliaria tech), esto amplía su mercado y facilita interacciones en línea, como transacciones o consultas de propiedades, esenciales para su modelo de negocio.</li>
+                    
+                    <li><strong>Acceso a tecnología (Impacto: <span class="impact impact-5">5/5</span>)</strong>: La segunda gráfica muestra un crecimiento exponencial en hogares con banda ancha (HG) y dispositivos móviles por persona (DIP), superando el 80,000% y 100,000% en 2022. Esto garantiza que los clientes de HABI accedan a sus plataformas con velocidad y desde múltiples dispositivos, optimizando la experiencia y operatividad.</li>
+                    
+                    <li><strong>Indicadores geográficos (Impacto: <span class="impact impact-3">3/5</span>)</strong>: Aunque no se grafican, España tiene brechas urbano-rurales en cobertura tecnológica. HABI debe priorizar zonas urbanas con mejor infraestructura, mientras analiza estrategias para áreas rurales, donde la conectividad limitada podría restringir su alcance.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Comercio Internacional -->
+    <section id="commerce" class="seccion seccion-azul">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Entorno de Comercio Internacional</h2>
+            
+            <div class="valor-card">
+                <h3><i class="fas fa-handshake me-2"></i> Acuerdos comerciales</h3>
+                <p>UE-Colombia (vigente desde 2013).</p>
+                <p class="text-muted"><em>Fuente: Ministerio de Comercio de Colombia</em></p>
+                <p><strong>Análisis</strong>: Arancel 0% para servicios digitales facilita entrada.</p>
+                <p><strong>Impacto: <span class="impact impact-5">5/5</span></strong>.</p>
+            </div>
+            
+            <div class="valor-card mt-4">
+                <h3><i class="fas fa-exchange-alt me-2"></i> Balanza comercial (2022)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Exportaciones Colombia (€M)</th>
+                            <th>Importaciones Colombia (€M)</th>
+                            <th>Saldo (€M)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>1,050</td>
+                            <td>1,300</td>
+                            <td>-250</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>1,100</td>
+                            <td>1,450</td>
+                            <td>-350</td>
+                        </tr>
+                        <tr>
+                            <td>2020</td>
+                            <td>900</td>
+                            <td>1,200</td>
+                            <td>-300</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>1,200</td>
+                            <td>1,600</td>
+                            <td>-400</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>1,500</td>
+                            <td>1,800</td>
+                            <td>-300</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted"><em>Fuente: DANE</em></p>
+                
+                <div class="text-center mt-4">
+                    <img src="exporttaciones.jpg" alt="Balanza Comercial Colombia-España" class="pretest-img">
+                    <p class="text-muted">Balanza Comercial Colombia-España</p>
+                </div>
+            </div>
+            
+            <div class="valor-card mt-4">
+                <h3><i class="fas fa-truck me-2"></i> Indicador de desempeño logístico (LPI)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Puntuación (1-5)</th>
+                            <th>Ranking mundial</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>3.8</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>3.9</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>2020</td>
+                            <td>4.0</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>4.1</td>
+                            <td>11</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>4.2</td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted"><em>Fuente: Banco Mundial (2023) - Logistics Performance Index</em></p>
+                
+                <div class="text-center mt-4">
+                    <img src="desepeñologistico.jpg" alt="Desempeño Logístico de España" class="pretest-img">
+                    <p class="text-muted">Desempeño Logístico de España</p>
+                </div>
+                
+                <h3 class="mt-4"><i class="fas fa-chart-pie me-2"></i> Análisis</h3>
+                <p>La expansión de Habi al mercado español representa una oportunidad estratégica bien fundamentada. A pesar del desequilibrio comercial entre Colombia y España, el dinamismo de sus relaciones económicas sugiere un entorno favorable para la inversión. España, con una logística altamente calificada a nivel mundial, ofrece condiciones óptimas para las operaciones de la empresa.</p>
+                
+                <p>El marco legal español, aunque requiere adaptación a regulaciones específicas del sector inmobiliario y digital, es claro y estable. Además, los acuerdos bilaterales vigentes, como los de inversión y doble imposición, facilitan la entrada y gestión fiscal de Habi.</p>
+                
+                <p>Dadas estas condiciones, la internacionalización hacia España se presenta como una vía atractiva de crecimiento y diversificación. La capacidad de Habi para innovar en el mercado inmobiliario digital, sumada a un entorno logístico eficiente y un marco legal favorable, ofrece un panorama prometedor para su consolidación en Europa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Inversión Extranjera Directa -->
+    <section id="investment" class="seccion seccion-clara">
+        <div class="container">
+            <h2 class="text-center seccion-titulo">Entorno de Inversión Extranjera Directa</h2>
+            
+            <div class="valor-card">
+                <h3><i class="fas fa-money-bill-wave me-2"></i> Flujos de IED España-Colombia (2022)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>IED España a Colombia (€M)</th>
+                            <th>IED Colombia a España (€M)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>280</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>310</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>2020</td>
+                            <td>200</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>290</td>
+                            <td>70</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>320</td>
+                            <td>80</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="text-center mt-4">
+                    <img src="flujo.jpg" alt="Flujos de IED entre España y Colombia" class="pretest-img">
+                    <p class="text-muted">Flujos de IED entre España y Colombia</p>
+                </div>
+                
+                <p>España invirtió €320M en Colombia (sector inmobiliario: 15%).</p>
+            </div>
+            
+            <div class="valor-card mt-4">
+                <h3><i class="fas fa-chart-bar me-2"></i> Principales sectores de inversión</h3>
+                <div class="text-center mt-4">
+                    <img src="inversion.jpg" alt="Principales sectores de inversión" class="pretest-img">
+                    <p class="text-muted">Principales sectores de inversión</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sector</th>
+                            <th>% IED Total</th>
+                            <th>Inversión destacada (EUR millones)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bienes raíces</td>
+                            <td>22%</td>
+                            <td>7,500</td>
+                        </tr>
+                        <tr>
+                            <td>Tecnología y software</td>
+                            <td>18%</td>
+                            <td>6,200</td>
+                        </tr>
+                        <tr>
+                            <td>Energías renovables</td>
+                            <td>15%</td>
+                            <td>5,100</td>
+                        </tr>
+                        <tr>
+                            <td>Turismo</td>
+                            <td>12%</td>
+                            <td>4,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted"><em>Fuente: Invest in Spain (2023)</em></p>
+            </div>
+            
+            <div class="valor-card mt-4">
+                <h3><i class="fas fa-gift me-2"></i> Incentivos a la inversión</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Incentivo</th>
+                            <th>Beneficio</th>
+                            <th>Sector aplicable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Deducción R&D (30%)</td>
+                            <td>Reducción fiscal para innovación</td>
+                            <td>Tecnología</td>
+                        </tr>
+                        <tr>
+                            <td>Zonas de Urgencia Económica</td>
+                            <td>Exenciones fiscales (hasta 50%)</td>
+                            <td>Regiones menos desarrolladas</td>
+                        </tr>
+                        <tr>
+                            <td>Fondos Next Generation EU</td>
+                            <td>Subvenciones hasta €500,000 por proyecto</td>
+                            <td>Digitalización</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted"><em>Fuente: Ministerio de Industria, Comercio y Turismo de España (2023)</em></p>
+                
+                <h3 class="mt-4"><i class="fas fa-chart-pie me-2"></i> Análisis</h3>
+                <p><strong>La internacionalización de Habi hacia España se ve respaldada por el entorno de Inversión Extranjera Directa (IED), caracterizado por un flujo creciente de inversión de España a Colombia, que alcanzó los 320 millones de euros en 2022, de los cuales el 15% fue destinado al sector inmobiliario. Este interés en bienes raíces indica un potencial atractivo para Habi al replicar su modelo en España. Asimismo, los sectores estratégicos de inversión, con bienes raíces representando el 22% del total de IED (7,500 millones de euros), refuerzan la relevancia del sector para captar capital extranjero. Además, los incentivos a la inversión en España, como los fondos Next Generation EU y las deducciones fiscales en I+D, podrían reducir los costos operativos de Habi, impulsando su expansión digital. Por último, el acceso a subvenciones de hasta 500,000 euros facilita la implementación de proyectos innovadores, alineados con la digitalización del sector inmobiliario en el país.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusión -->
+    <section id="conclusion" class="seccion">
+        <div class="container">
+            <div class="conclusion">
+                <h3 class="text-center">Conclusión y Recomendaciones</h3>
+                <p>España ofrece un entorno <strong>altamente favorable</strong> para la internacionalización de HABI, destacando:</p>
+                
+                <h4>Oportunidades:</h4>
+                <ul>
+                    <li>Mercado digitalizado y urbano con alta adopción tecnológica.</li>
+                    <li>Estabilidad política y marco legal predecible.</li>
+                    <li>Incentivos fiscales y acceso a fondos europeos para innovación.</li>
+                </ul>
+                
+                <h4>Desafíos:</h4>
+                <ul>
+                    <li>Costos iniciales por cumplimiento regulatorio (GDPR, Ley de Propiedad Horizontal).</li>
+                    <li>Brechas tecnológicas en zonas rurales.</li>
+                </ul>
+                
+                <h4>Recomendaciones:</h4>
+                <ul>
+                    <li>Priorizar ciudades principales (Madrid, Barcelona) para la expansión inicial.</li>
+                    <li>Invertir en integración con registros públicos digitales y seguridad de datos.</li>
+                    <li>Aprovechar incentivos gubernamentales para reducir costos operativos.</li>
+                </ul>
+                
+                <p class="text-center"><strong>Calificación Global: 4.5/5</strong> (entorno muy favorable con desafíos manejables).</p>
+                
+                <p class="text-muted text-center"><em>Nota</em>: Los datos respaldan una estrategia de entrada sólida, pero se recomienda un plan de adaptación cultural y legal detallado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="mb-4">
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="text-white mx-3 fs-4"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2024 Equipo 5 - Análisis de Internacionalización HABI. Todos los derechos reservados.</p>
+            <p class="text-muted mt-2">Fuentes: INE, Eurostat, Banco Mundial, Invest in Spain, Ministerio de Industria, Comercio y Turismo de España</p>
+        </div>
+    </footer>
+
+    <!-- Botón para volver a la página principal -->
+    <a href="pagina2.html" class="back-button" title="Volver a la página principal">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling para todos los enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Efecto de navbar al hacer scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
